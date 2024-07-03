@@ -7,7 +7,7 @@ import NoteMaker from './NoteEditor';
 import ReadmeEditor from './ReadmeEditor';
 
 
-export default function Editorbox({ fileName, setFileName }) {
+export default function Editorbox({ fileName }) {
 
   const ext = fileName.split('.').pop().toLowerCase();
 

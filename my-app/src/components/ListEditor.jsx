@@ -1,38 +1,38 @@
 import { useState } from 'react';
 
-const ListMaker = () => {
-  const [listItems, setListItems] = useState([]);
-  const [newItemText, setNewItemText] = useState('');
+const ListEditor = () => {
+  const [managedItems, setManagedItems] = useState([]);
+  const [textInput, setTextInput] = useState('');
 
-  const handleChange = (e) => {
-    setNewItemText(e.target.value);
+  const handleTextChange = (e) => {
+    setTextInput(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (newItemText.trim() !== '') {
+    if (textInput.trim() !== '') {
       const newItem = {
         id: Date.now(),
-        text: newItemText,
+        content: textInput,
       };
-      setListItems([...listItems, newItem]);
-      setNewItemText('');
+      setManagedItems([...managedItems, newItem]);
+      setTextInput('');
     }
   };
 
-  const handleDelete = (id) => {
-    const updatedList = listItems.filter(item => item.id !== id);
-    setListItems(updatedList);
+  const handleDeleteItem = (id) => {
+    const updatedItems = managedItems.filter(item => item.id !== id);
+    setManagedItems(updatedItems);
   };
 
   return (
     <div className="p-4 text-black h-screen">
-      <h2 className="text-2xl mb-4 mt-4 text-center font-bold">List Maker</h2>
-      <form onSubmit={handleSubmit} className="mb-4">
+      <h2 className="text-2xl mb-4 mt-4 text-center font-bold">Item Manager</h2>
+      <form onSubmit={handleFormSubmit} className="mb-4">
         <input
           type="text"
-          value={newItemText}
-          onChange={handleChange}
+          value={textInput}
+          onChange={handleTextChange}
           placeholder="Enter new item..."
           className="p-2 rounded border border-gray-300 text-cyan-600 mr-2"
         />
@@ -41,10 +41,10 @@ const ListMaker = () => {
         </button>
       </form>
       <ul className="list-disc pl-6">
-        {listItems.map(item => (
+        {managedItems.map(item => (
           <li key={item.id} className="mb-2">
-            {item.text}
-            <button onClick={() => handleDelete(item.id)} className="ml-2 text-red-500">
+            {item.content}
+            <button onClick={() => handleDeleteItem(item.id)} className="ml-2 text-red-500">
               Delete
             </button>
           </li>
@@ -54,4 +54,4 @@ const ListMaker = () => {
   );
 };
 
-export default ListMaker;
+export default ListEditor;
