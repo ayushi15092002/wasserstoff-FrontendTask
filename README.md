@@ -22,12 +22,12 @@ An user-friendly IDE that allows users to manage folders and files, each associa
 
 ## Installation and Usage
 
-1. Clone the repository from GitHub: https://github.com/ayushi15092002/wasserstoff-FrontendTask.git
+1. Clone the repository from GitHub:  `git clone https://github.com/ayushi15092002/wasserstoff-FrontendTask.git`
 2. Install dependencies:
-    cd my-app
-    npm install
+    `cd my-app`
+    `npm install`
 3. Start the development server:
-    npm run dev
+   ` npm run dev `
 4. Open your browser and navigate to `http://localhost:3000`.
 
 Vercel Deployed Url : https://wasserstoff-frontend-task-indol.vercel.app/
