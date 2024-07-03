@@ -1,7 +1,31 @@
 "use client";
-import { EditorContainer } from "./EditorContainer";
+
+import WelcomeScreen from './Welcome';
+import TextEditor from './TextEditor';
+import ListMaker from './ListEditor';
+import NoteMaker from './NoteEditor';
+import ReadmeEditor from './ReadmeEditor';
+
 
 export default function Editorbox({ fileName, setFileName }) {
+
+  const ext = fileName.split('.').pop().toLowerCase();
+
+  const getEditorComponent = () => {
+    switch (ext) {
+      case "ed":
+        return <TextEditor key={fileName} />;
+      case "note":
+        return <NoteMaker key={fileName} />;
+      case "lt":
+        return <ListMaker key={fileName} />;
+      case "readme":
+        return <ReadmeEditor key={fileName} />;
+      default:
+        return <WelcomeScreen key={fileName} />;
+    }
+  };
+
   return (
     <div className="w-full h-full">
       {
@@ -11,7 +35,7 @@ export default function Editorbox({ fileName, setFileName }) {
           </div>
         )
       }
-      <EditorContainer key={fileName} fileExt={fileName} />
+      {getEditorComponent()}
     </div>
   );
 }

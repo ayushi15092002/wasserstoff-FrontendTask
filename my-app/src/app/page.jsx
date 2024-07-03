@@ -3,7 +3,7 @@ import { useState } from "react";
 import Editorbox from "@/components/Editorbox";
 import LeftSide from "@/components/LeftSide";
 
-export default function Home() {
+export default function Page() {
   const explorer = {
     id: "1",
     name: "Explorer",

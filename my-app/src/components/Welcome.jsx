@@ -1,4 +1,4 @@
-export default function Default() {
+export default function WelcomeScreen() {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center p-10 overflow-auto">
       <div className="flex flex-col gap-10 items-center justify-center text-center">
